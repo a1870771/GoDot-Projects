@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dyks5yukosfuk"]
+
+[ext_resource type="PackedScene" uid="uid://cjvcvv27nb1jy" path="res://player.tscn" id="1_5y4d2"]
+[ext_resource type="PackedScene" uid="uid://dre5iopqvo6qm" path="res://stone.tscn" id="2_0lddr"]
+[ext_resource type="Texture2D" uid="uid://dvqqwbrwi1vr1" path="res://art/ground.png" id="3_43odm"]
+[ext_resource type="Texture2D" uid="uid://bl3r3oebjex0b" path="res://art/tileset1.png" id="4_yxr8e"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ubljb"]
+texture = ExtResource("4_yxr8e")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_78xsb"]
+sources/0 = SubResource("TileSetAtlasSource_ubljb")
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Ground" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("3_43odm")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 180)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_78xsb")
+format = 2
+layer_0/tile_data = PackedInt32Array(65545, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 262153, 65536, 1, 327689, 65536, 1, 393225, 65536, 1, 458761, 65536, 1, 524297, 65536, 1, 589833, 65536, 1, 655369, 65536, 1, 720905, 65536, 1, 9, 65536, 1, 10, 131072, 1, 65546, 131072, 1, 131082, 131072, 1, 196618, 131072, 1, 262154, 131072, 1, 327690, 131072, 1, 393226, 131072, 1, 458762, 131072, 1, 524298, 131072, 1, 589834, 131072, 1, 655370, 131072, 1, 720906, 131072, 1, 720904, 0, 1, 655368, 0, 1, 589832, 0, 1, 524296, 0, 1, 458760, 0, 1, 393224, 0, 1, 327688, 0, 1, 262152, 0, 1, 196616, 0, 1, 131080, 0, 1, 65544, 0, 1, 8, 0, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_5y4d2")]
+position = Vector2(44, 37)
+
+[node name="Stone2" parent="." instance=ExtResource("2_0lddr")]
+position = Vector2(88, 88)
+
+[node name="Stone" parent="." instance=ExtResource("2_0lddr")]
+position = Vector2(208, 112)

@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjvcvv27nb1jy"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_te2wy"]
+[ext_resource type="Texture2D" uid="uid://cgve6g6yp8twf" path="res://art/Charlie_Back_1.png" id="2_vx8hb"]
+[ext_resource type="Texture2D" uid="uid://cfd4npdcaxxnc" path="res://art/Charlie_Back_2.png" id="3_6vi5f"]
+[ext_resource type="Texture2D" uid="uid://pou103jl27tn" path="res://art/Charlie_Back_3.png" id="4_gi7gu"]
+[ext_resource type="Texture2D" uid="uid://bky52bdbpolxq" path="res://art/Charlie_Front_1.png" id="5_r57p2"]
+[ext_resource type="Texture2D" uid="uid://b4gyafkljm2yk" path="res://art/Charlie_Front_2.png" id="6_6owbw"]
+[ext_resource type="Texture2D" uid="uid://bd21q05m325pq" path="res://art/Charlie_Front_3.png" id="7_0kuad"]
+[ext_resource type="Texture2D" uid="uid://gfjo14nbivod" path="res://art/Charlie_Side_1.png" id="8_gj4ph"]
+[ext_resource type="Texture2D" uid="uid://c2g2jyqa74y0o" path="res://art/Charlie_Side_2.png" id="9_v3pur"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xiay8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vx8hb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6vi5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vx8hb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gi7gu")
+}],
+"loop": true,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_r57p2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6owbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r57p2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0kuad")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_v3pur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gj4ph")
+}],
+"loop": true,
+"name": &"side",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6s2j"]
+radius = 3.0
+height = 12.0
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_te2wy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -7.5)
+sprite_frames = SubResource("SpriteFrames_xiay8")
+animation = &"side"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_v6s2j")
