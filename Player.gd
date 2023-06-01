@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-#this work? maybe maybe not
-
 var screen_size
 var speed = 100
 
